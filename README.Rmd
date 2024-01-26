@@ -18,4 +18,151 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
+## Author
 
+Ridson Al Farizal P, Azka Ubaidillah
+
+## Maintainer
+
+Ridson Al Farizal P [ridsonap\@bps.go.id](mailto:ridsonap@bps.go.id)
+
+## Description
+
+This package is provide several functions for area level of small area estimation for non sampled areas using cluster information.
+
+## Installation
+
+You can install the development version of saens from [GitHub](https://github.com/) with:
+
+```{r, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("Alfrzlp/saens")
+```
+
+or you can install cran version
+
+```{r, eval=FALSE}
+install.packages("saens")
+```
+
+# Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example, message=FALSE, warning=FALSE}
+library(saens)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+windowsFonts(
+  poppins = windowsFont('poppins')
+)
+```
+
+## Data
+
+```{r data}
+milk$var <- milk$SD^2
+
+# glimpse(mys)
+# glimpse(milk)
+```
+
+# EBLUP Model
+
+```{r}
+model1 <- eblupfh(yi ~ as.factor(MajorArea), data = milk, vardir = "var")
+```
+
+### AIC, BIC, and Loglikehood
+
+```{r}
+AIC(model1)
+BIC(model1)
+logLik(model1)
+```
+
+### Coef
+
+```{r}
+coef(model1)
+```
+
+### Summary
+
+```{r}
+summary(model1)
+```
+
+### Autoplot
+
+```{r, dpi=500, fig.height=2, fig.width=6}
+saens::autoplot(model1, variable = 'MSE')
+```
+
+```{r, dpi=500, fig.height=2, fig.width=6}
+saens::autoplot(model1, variable = 'RRMSE')
+```
+
+```{r, dpi=500, fig.height=2, fig.width=6}
+saens::autoplot(model1, variable = 'estimation')
+```
+
+# EBLUP Model for Non-sampled Areas
+
+```{r}
+model_ns <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+```
+
+### Comparison of estimates and RSE
+
+```{r}
+mys$eblup_est <- model_ns$df_res$eblup
+mys$eblup_rse <- model_ns$df_res$rse
+  
+glimpse(mys)
+```
+
+```{r, dpi=500, fig.height=3, fig.width=6}
+mys %>% 
+  select(area, rse, eblup_rse) %>% 
+  pivot_longer(-1, names_to = "metode", values_to = "rse") %>%
+  ggplot(aes(x = area, y = rse, col = metode)) +
+  geom_line() +
+    scale_color_discrete(
+    labels = c('EBLUP', 'Direct Estimate')
+  ) +
+  labs(col = NULL, y = 'Estimate', x = 'Domain', title = 'Comparison of RSE') +
+  theme(
+    legend.position = 'bottom',
+    text = element_text(family = 'poppins'),
+    axis.ticks.x = element_blank(),
+    plot.title = element_text(face = 2, vjust = 0),
+    plot.subtitle = element_text(colour = 'gray30', vjust = 0)
+  )
+```
+
+```{r, dpi=500, fig.height=3, fig.width=6}
+mys %>% 
+  select(area, y, eblup_est) %>% 
+  pivot_longer(-1, names_to = "metode", values_to = "rse") %>%
+  ggplot(aes(x = area, y = rse, col = metode)) +
+  geom_line() +
+    scale_color_discrete(
+    labels = c('EBLUP', 'Direct Estimate')
+  ) +
+  labs(col = NULL, y = 'Estimate', x = 'Domain', title = 'Comparison of Estimates') +
+  theme(
+    legend.position = 'bottom',
+    text = element_text(family = 'poppins'),
+    axis.ticks.x = element_blank(),
+    plot.title = element_text(face = 2, vjust = 0),
+    plot.subtitle = element_text(colour = 'gray30', vjust = 0)
+  )
+```
+
+## References
+
+-   Rao, J. N., & Molina, I. (2015). Small area estimation. John Wiley & Sons.
+-   Anisa, R., Kurnia, A., & Indahwati, I. (2013). Cluster information of non-sampled area in small area estimation. E-Prosiding Internasional\| Departemen Statistika FMIPA Universitas Padjadjaran, 1(1), 69-76.

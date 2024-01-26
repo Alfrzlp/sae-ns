@@ -1,0 +1,12 @@
+AIC.eblupres	AIC.eblupres
+autoplot	autoplot
+autoplot.eblupres	autoplot.eblupres
+BIC.eblupres	AIC.eblupres
+coef.eblupres	coef.eblupres
+eblupfh	eblupfh
+eblupfh_cluster	eblupfh_cluster
+logLik.eblupres	logLik.eblupres
+milk	milk
+mys	mys
+saens	saens
+summary.eblupres	summary.eblupres

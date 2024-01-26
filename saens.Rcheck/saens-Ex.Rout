@@ -1,0 +1,289 @@
+
+R version 4.2.0 (2022-04-22 ucrt) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "saens"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> library('saens')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("AIC.eblupres")
+> ### * AIC.eblupres
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: AIC.eblupres
+> ### Title: Akaike's An Information Criterion
+> ### Aliases: AIC.eblupres BIC.eblupres
+> 
+> ### ** Examples
+> 
+> m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> AIC(m1)
+    AIC 
+140.285 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("autoplot.eblupres")
+> ### * autoplot.eblupres
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: autoplot.eblupres
+> ### Title: Autoplot EBLUP results
+> ### Aliases: autoplot.eblupres
+> 
+> ### ** Examples
+> 
+> library(saens)
+> 
+> m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> autoplot(m1)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("coef.eblupres")
+> ### * coef.eblupres
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: coef.eblupres
+> ### Title: Extract Model Coefficients
+> ### Aliases: coef.eblupres
+> 
+> ### ** Examples
+> 
+> m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> coef(m1)
+ (Intercept)           x1           x2           x3 
+ 3.107750953 -0.001932259  0.055518370  0.033534410 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("eblupfh")
+> ### * eblupfh
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: eblupfh
+> ### Title: EBLUPs based on a Fay-Herriot Model.
+> ### Aliases: eblupfh
+> 
+> ### ** Examples
+> 
+> library(saens)
+> 
+> m1 <- eblupfh(y ~ x1 + x2 + x3, data = na.omit(mys), vardir = "var")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> m1 <- eblupfh(y ~ x1 + x2 + x3, data = na.omit(mys), vardir = ~var)
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("eblupfh_cluster")
+> ### * eblupfh_cluster
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: eblupfh_cluster
+> ### Title: EBLUPs based on a Fay-Herriot Model with Cluster Information.
+> ### Aliases: eblupfh_cluster
+> 
+> ### ** Examples
+> 
+> library(saens)
+> 
+> m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = ~var, cluster = ~clust)
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> 
+> 
+> cleanEx()
+> nameEx("logLik.eblupres")
+> ### * logLik.eblupres
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: logLik.eblupres
+> ### Title: Extract Log-Likelihood
+> ### Aliases: logLik.eblupres
+> 
+> ### ** Examples
+> 
+> library(saens)
+> 
+> model1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> logLik(model1)
+  loglike 
+-65.14251 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("summary.eblupres")
+> ### * summary.eblupres
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: summary.eblupres
+> ### Title: Summarizing EBLUP Model Fits
+> ### Aliases: summary.eblupres
+> 
+> ### ** Examples
+> 
+> library(saens)
+> 
+> model1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
+✔ Convergence after 6 iterations
+→ Method : REML
+
+── Coefficient ─────────────────────────────────────────────────────────────────
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> summary(model1)
+                  beta  Std.Error z-value   p-value    
+(Intercept)  3.1077510  0.7697687  4.0373 5.408e-05 ***
+x1          -0.0019323  0.0098886 -0.1954    0.8451    
+x2           0.0555184  0.0614129  0.9040    0.3660    
+x3           0.0335344  0.0580013  0.5782    0.5632    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.04 0.14 2.28 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

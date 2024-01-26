@@ -1,0 +1,7 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX .
+Creating pdf output from LaTeX ...
+texify: major issue: So far, you have not checked for MiKTeX updates.
+Saving output to 'saens-manual.pdf' ...
+Done
+You may want to clean up by 'rm -Rf C:/Users/alfrz/AppData/Local/Temp/RtmpU5pFqt/Rd2pdf4aa05a0c11cc'

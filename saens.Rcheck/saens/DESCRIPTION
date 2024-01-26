@@ -1,6 +1,7 @@
 Package: saens
 Type: Package
-Title: Small Area Estimation on the Fay-Herriot Model for Non-Sampled Area Estimation with Cluster Information.
+Title: Small Area Estimation on the Fay-Herriot Model for Non-Sampled
+        Area Estimation with Cluster Information.
 Version: 0.1.0
 Authors@R: c(
       person("Ridson Al Farizal P", role = c("aut", "cre","cph"), email = "ridsonap@bps.go.id", comment = c(ORCID = "0000-0003-0617-0214")),
@@ -12,14 +13,13 @@ URL: https://github.com/Alfrzlp/sae-ns
 BugReports: https://github.com/Alfrzlp/sae-ns/issues
 Encoding: UTF-8
 LazyData: true
-Depends: 
-    R (>= 4.00)
+Depends: R (>= 4.00)
 RoxygenNote: 7.2.0
-Imports: 
-    cli,
-    dplyr,
-    ggplot2,
-    methods,
-    rlang,
-    stats,
-    tidyr
+Imports: cli, dplyr, ggplot2, methods, rlang, stats, tidyr
+NeedsCompilation: no
+Packaged: 2024-01-26 13:49:14 UTC; alfrz
+Author: Ridson Al Farizal P [aut, cre, cph]
+    (<https://orcid.org/0000-0003-0617-0214>),
+  Azka Ubaidillah [aut] (<https://orcid.org/0000-0002-3597-0459>)
+Maintainer: Ridson Al Farizal P <ridsonap@bps.go.id>
+Built: R 4.2.0; ; 2024-01-26 13:49:18 UTC; windows

@@ -1,0 +1,15 @@
+AIC.eblupres            Akaike's An Information Criterion
+autoplot                Create a complete ggplot appropriate to a
+                        particular data type
+autoplot.eblupres       Autoplot EBLUP results
+coef.eblupres           Extract Model Coefficients
+eblupfh                 EBLUPs based on a Fay-Herriot Model.
+eblupfh_cluster         EBLUPs based on a Fay-Herriot Model with
+                        Cluster Information.
+logLik.eblupres         Extract Log-Likelihood
+milk                    milk: Data on fresh milk expenditure.
+mys                     mys: mean years of schooling people with
+                        disabilities in Papua Island, Indonesia.
+saens                   saens : Small Area Estimation (sae) for
+                        Non-sampled Areas.
+summary.eblupres        Summarizing EBLUP Model Fits
