@@ -1,9 +1,9 @@
-#' Autoplot EBLUP results
+#' Autoplot EBLUP results.
 #'
-#' @param object EBLUP model
-#' @param variable variable to plot
+#' @param object EBLUP model.
+#' @param variable variable to plot.
 #' @param ... further arguments passed to or from other methods.
-#' @return plot
+#' @return plot.
 #'
 #' @examples
 #' library(saens)

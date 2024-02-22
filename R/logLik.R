@@ -1,6 +1,6 @@
-#' Extract Log-Likelihood
+#' Extract Log-Likelihood.
 #'
-#' @param object EBLUP model
+#' @param object EBLUP model.
 #' @param ... further arguments passed to or from other methods.
 #'
 #' @return Log-Likehood value

@@ -18,8 +18,12 @@ Ridson Al Farizal P <ridsonap@bps.go.id>
 
 ## Description
 
-This package is provide several functions for area level of small area
-estimation for non sampled areas using cluster information.
+Implementation of small area estimation (Fay-Herriot model) with EBLUP
+(Empirical Best Linear Unbiased Prediction) Approach for non-sampled
+area estimation by adding cluster information and assuming that there
+are similarities among particular areas. See also Rao & Molina (2015,
+<ISBN:978-1-118-73578-7>) and Anisa et al. (2013)
+<doi:10.9790/5728-10121519>.
 
 ## Installation
 

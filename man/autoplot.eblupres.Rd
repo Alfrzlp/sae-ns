@@ -2,22 +2,22 @@
 % Please edit documentation in R/autoplot.R
 \name{autoplot.eblupres}
 \alias{autoplot.eblupres}
-\title{Autoplot EBLUP results}
+\title{Autoplot EBLUP results.}
 \usage{
 \method{autoplot}{eblupres}(object, variable = "RSE", ...)
 }
 \arguments{
-\item{object}{EBLUP model}
+\item{object}{EBLUP model.}
 
-\item{variable}{variable to plot}
+\item{variable}{variable to plot.}
 
 \item{...}{further arguments passed to or from other methods.}
 }
 \value{
-plot
+plot.
 }
 \description{
-Autoplot EBLUP results
+Autoplot EBLUP results.
 }
 \examples{
 library(saens)

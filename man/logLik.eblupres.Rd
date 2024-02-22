@@ -2,12 +2,12 @@
 % Please edit documentation in R/logLik.R
 \name{logLik.eblupres}
 \alias{logLik.eblupres}
-\title{Extract Log-Likelihood}
+\title{Extract Log-Likelihood.}
 \usage{
 \method{logLik}{eblupres}(object, ...)
 }
 \arguments{
-\item{object}{EBLUP model}
+\item{object}{EBLUP model.}
 
 \item{...}{further arguments passed to or from other methods.}
 }
@@ -15,7 +15,7 @@
 Log-Likehood value
 }
 \description{
-Extract Log-Likelihood
+Extract Log-Likelihood.
 }
 \examples{
 library(saens)

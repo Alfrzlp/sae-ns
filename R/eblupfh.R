@@ -1,21 +1,20 @@
 #' EBLUPs based on a Fay-Herriot Model.
 #'
-#' @description This function gives the EBLUP (or EB predictor under normality) based on a Fay-Herriot model.
+#' @description This function gives the Empirical Best Linear Unbiased Prediction (EBLUP) or Empirical Best (EB) predictor under normality based on a Fay-Herriot model.
 #'
 #' @references
 #' \enumerate{
 #'  \item Rao, J. N., & Molina, I. (2015). Small area estimation. John Wiley & Sons.
-#'  \item Anisa, R., Kurnia, A., & Indahwati, I. (2013). Cluster information of non-sampled area in small area estimation. E-Prosiding Internasional| Departemen Statistika FMIPA Universitas Padjadjaran, 1(1), 69-76.
 #'}
 #'
 #' @param formula an object of class formula that contains a description of the model to be fitted. The variables included in the formula must be contained in the data.
-#' @param data a data frame or a data frame extension (e.g. a tibble)
-#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area
-#' @param method Fitting method can be chosen between 'ML' and 'REML'
+#' @param data a data frame or a data frame extension (e.g. a tibble).
+#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area.
+#' @param method Fitting method can be chosen between 'ML' and 'REML'.
 #' @param maxiter maximum number of iterations allowed in the Fisher-scoring algorithm. Default is 100 iterations.
 #' @param precision convergence tolerance limit for the Fisher-scoring algorithm. Default value is 0.0001.
-#' @param scale scaling auxiliary variable or not, default value is FALSE
-#' @param print_result print coefficient or not, default value is TRUE
+#' @param scale scaling auxiliary variable or not, default value is FALSE.
+#' @param print_result print coefficient or not, default value is TRUE.
 #'
 #' @returns The function returns a list with the following objects (\code{df_res} and \code{fit}):
 #' \code{df_res} a data frame that contains the following columns: \cr
@@ -24,7 +23,6 @@
 #'    * \code{random_effect} random effect for each area \cr
 #'    * \code{vardir} variance sampling from the direct estimator for each area \cr
 #'    * \code{mse} Mean Square Error \cr
-#'    * \code{cluster} cluster information for each area \cr
 #'    * \code{rse} Relative Standart Error (%) \cr
 #'
 #' \code{fit} a list containing the following objects: \cr
@@ -70,10 +68,11 @@ eblupfh <- function(formula, data, vardir, method = "REML",
 
 
   if (any(is.na(y))) {
-    cli::cli_abort("variable y contains NA values, please use eblupfh cluster function")
+    cli::cli_abort("variable {all.names(formula[2])} contains NA values, please use eblupfh_cluster function")
   }
   datas <- data
 
+  vardir_name <- vardir
   vardir <- .get_variable(datas, vardir)
   formuladata <- stats::model.frame(formula, datas, na.action = NULL)
   X <- stats::model.matrix(formula, datas)
@@ -81,17 +80,15 @@ eblupfh <- function(formula, data, vardir, method = "REML",
 
   if (scale) {
     X <- scale(X)
-    # my_scale <- attr(X, "scaled:scale")
-    # my_center <- attr(X, "scaled:center")
   }
 
   # Cek pilihan metode
   if (!toupper(method) %in% c("ML", "REML")) {
-    cli::cli_abort('"method" must be ML or REML, not {method}')
+    cli::cli_abort('"method" must be ML or REML, not {method}.')
   }
   # cek vardir mengandung NA atau tidak
   if (any(is.na(vardir))) {
-    cli::cli_abort("Argument vardir contains NA values.")
+    cli::cli_abort("Argument {vardir_name} contains NA values.")
   }
   # cek Auxiliary variabels mengandung NA atau tidak
   if (any(is.na(X))) {
@@ -123,6 +120,7 @@ eblupfh <- function(formula, data, vardir, method = "REML",
   R <- diag(vardir, m)
   Z <- diag(1, m)
 
+
   # Fisher scoring algorithm
   if (method == "ML") {
     while ((diff > precision) & (k < maxiter)) {
@@ -130,8 +128,6 @@ eblupfh <- function(formula, data, vardir, method = "REML",
       G <- diag(sigma2_u[k + 1], m)
       # varians y
       V <- Z %*% G %*% t(Z) + R
-      print(Z %*% G %*% t(Z))
-      print(V)
 
       Vi <- solve(V)
       XtVi <- Xt %*% Vi

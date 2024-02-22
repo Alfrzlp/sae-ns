@@ -1,12 +1,12 @@
 Package: saens
 Type: Package
-Title: Small Area Estimation on the Fay-Herriot Model for Non-Sampled Area Estimation with Cluster Information.
+Title: Small Area Estimation with Cluster Information for Estimation of Non-Sampled Areas
 Version: 0.1.0
 Authors@R: c(
-      person("Ridson Al Farizal P", role = c("aut", "cre","cph"), email = "ridsonap@bps.go.id", comment = c(ORCID = "0000-0003-0617-0214")),
+      person("Ridson Al Farizal P", role = c("aut", "cre","cph"), email = "alfrzlp@gmail.com", comment = c(ORCID = "0000-0003-0617-0214")),
       person("Azka Ubaidillah", role = "aut", email = "azka@stis.ac.id", comment = c(ORCID = "0000-0002-3597-0459")) 
     )
-Description: This package provides several methods for small area estimation on the Fay-Herriot model for non-sampled area estimation with cluster information.
+Description: Implementation of small area estimation (Fay-Herriot model) with EBLUP (Empirical Best Linear Unbiased Prediction) Approach for non-sampled area estimation by adding cluster information and assuming that there are similarities among particular areas. See also Rao & Molina (2015, ISBN:978-1-118-73578-7) and Anisa et al. (2013) <doi:10.9790/5728-10121519>.
 License: MIT + file LICENSE
 URL: https://github.com/Alfrzlp/sae-ns
 BugReports: https://github.com/Alfrzlp/sae-ns/issues

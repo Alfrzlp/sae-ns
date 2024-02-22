@@ -2,12 +2,12 @@
 % Please edit documentation in R/summary.R
 \name{summary.eblupres}
 \alias{summary.eblupres}
-\title{Summarizing EBLUP Model Fits}
+\title{Summarizing EBLUP Model Fits.}
 \usage{
 \method{summary}{eblupres}(object, ...)
 }
 \arguments{
-\item{object}{EBLUP model}
+\item{object}{EBLUP model.}
 
 \item{...}{further arguments passed to or from other methods.}
 }
@@ -22,7 +22,7 @@ The function returns a data frame that contains the following columns: \cr
    * \code{rse} Relative Standart Error (%) \cr
 }
 \description{
-`summary` method for class "eblupres"
+`summary` method for class "eblupres".
 }
 \examples{
 library(saens)

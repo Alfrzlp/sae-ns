@@ -4,7 +4,7 @@
 \alias{saens}
 \title{saens : Small Area Estimation (sae) for Non-sampled Areas.}
 \description{
-saens package Provides several functions for area level of small area estimation for non sampled areas using cluster information.
+Small area estimation for non sampled areas using cluster information.
 }
 \references{
 \enumerate{

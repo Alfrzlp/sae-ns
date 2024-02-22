@@ -1,6 +1,6 @@
 #' EBLUPs based on a Fay-Herriot Model with Cluster Information.
 #'
-#' @description This function gives the EBLUP (or EB predictor under normality) based on a Fay-Herriot model with cluster information for non-sampled areas.
+#' @description This function gives the 'EBLUP' (or EB predictor under normality) based on a 'Fay-Herriot' model with cluster information for non-sampled areas.
 #'
 #' @references
 #' \enumerate{
@@ -9,14 +9,14 @@
 #' }
 #'
 #' @param formula an object of class formula that contains a description of the model to be fitted. The variables included in the formula must be contained in the data.
-#' @param data a data frame or a data frame extension (e.g. a tibble)
-#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area
+#' @param data a data frame or a data frame extension (e.g. a tibble).
+#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area.
 #' @param cluster vector or column name from data that contain cluster information.
 #' @param method Fitting method can be chosen between 'ML' and 'REML'
 #' @param maxiter maximum number of iterations allowed in the Fisher-scoring algorithm. Default is 100 iterations.
 #' @param precision convergence tolerance limit for the Fisher-scoring algorithm. Default value is 0.0001.
-#' @param scale scaling auxiliary variable or not, default value is FALSE
-#' @param print_result print coefficient or not, default value is TRUE
+#' @param scale scaling auxiliary variable or not, default value is FALSE.
+#' @param print_result print coefficient or not, default value is TRUE.
 #'
 #' @returns The function returns a list with the following objects \code{df_res} and \code{fit}:
 #' \code{df_res} a data frame that contains the following columns: \cr

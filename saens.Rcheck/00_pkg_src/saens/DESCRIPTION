@@ -1,13 +1,13 @@
 Package: saens
 Type: Package
-Title: Small Area Estimation on the Fay-Herriot Model for Non-Sampled
-        Area Estimation with Cluster Information.
+Title: 'EBLUP Fay-Herriot' Model for Estimation of Non-Sampled Areas
+        with Cluster Information
 Version: 0.1.0
 Authors@R: c(
-      person("Ridson Al Farizal P", role = c("aut", "cre","cph"), email = "ridsonap@bps.go.id", comment = c(ORCID = "0000-0003-0617-0214")),
+      person("Ridson Al Farizal P", role = c("aut", "cre","cph"), email = "alfrzlp@gmail.com", comment = c(ORCID = "0000-0003-0617-0214")),
       person("Azka Ubaidillah", role = "aut", email = "azka@stis.ac.id", comment = c(ORCID = "0000-0002-3597-0459")) 
     )
-Description: This package provides several methods for small area estimation on the Fay-Herriot model for non-sampled area estimation with cluster information.
+Description: Small area estimation ('Fay-Herriot' model) for non-sampled area estimation with cluster information.
 License: MIT + file LICENSE
 URL: https://github.com/Alfrzlp/sae-ns
 BugReports: https://github.com/Alfrzlp/sae-ns/issues
@@ -17,8 +17,8 @@ Depends: R (>= 4.00)
 RoxygenNote: 7.2.0
 Imports: cli, dplyr, ggplot2, methods, rlang, stats, tidyr
 NeedsCompilation: no
-Packaged: 2024-01-26 13:49:14 UTC; alfrz
+Packaged: 2024-02-14 06:38:34 UTC; alfrz
 Author: Ridson Al Farizal P [aut, cre, cph]
     (<https://orcid.org/0000-0003-0617-0214>),
   Azka Ubaidillah [aut] (<https://orcid.org/0000-0002-3597-0459>)
-Maintainer: Ridson Al Farizal P <ridsonap@bps.go.id>
+Maintainer: Ridson Al Farizal P <alfrzlp@gmail.com>

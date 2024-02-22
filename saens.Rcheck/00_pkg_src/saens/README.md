@@ -18,8 +18,8 @@ Ridson Al Farizal P <ridsonap@bps.go.id>
 
 ## Description
 
-This package is provide several functions for area level of small area
-estimation for non sampled areas using cluster information.
+EBLUP Fay-Herriot Model for Estimation of Non-Sampled Areas with Cluster
+Information.
 
 ## Installation
 

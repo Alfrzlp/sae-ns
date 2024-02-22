@@ -1,6 +1,6 @@
-#' Extract Model Coefficients
+#' Extract Model Coefficients.
 #'
-#' @param object EBLUP model
+#' @param object EBLUP model.
 #' @param ... further arguments passed to or from other methods.
 #'
 #' @return model coefficients

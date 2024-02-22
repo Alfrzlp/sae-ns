@@ -18,19 +18,19 @@ eblupfh(
 \arguments{
 \item{formula}{an object of class formula that contains a description of the model to be fitted. The variables included in the formula must be contained in the data.}
 
-\item{data}{a data frame or a data frame extension (e.g. a tibble)}
+\item{data}{a data frame or a data frame extension (e.g. a tibble).}
 
-\item{vardir}{vector or column names from data that contain variance sampling from the direct estimator for each area}
+\item{vardir}{vector or column names from data that contain variance sampling from the direct estimator for each area.}
 
-\item{method}{Fitting method can be chosen between 'ML' and 'REML'}
+\item{method}{Fitting method can be chosen between 'ML' and 'REML'.}
 
 \item{maxiter}{maximum number of iterations allowed in the Fisher-scoring algorithm. Default is 100 iterations.}
 
 \item{precision}{convergence tolerance limit for the Fisher-scoring algorithm. Default value is 0.0001.}
 
-\item{scale}{scaling auxiliary variable or not, default value is FALSE}
+\item{scale}{scaling auxiliary variable or not, default value is FALSE.}
 
-\item{print_result}{print coefficient or not, default value is TRUE}
+\item{print_result}{print coefficient or not, default value is TRUE.}
 }
 \value{
 The function returns a list with the following objects (\code{df_res} and \code{fit}):
@@ -41,7 +41,6 @@ The function returns a list with the following objects (\code{df_res} and \code{
 \item \code{random_effect} random effect for each area \cr
 \item \code{vardir} variance sampling from the direct estimator for each area \cr
 \item \code{mse} Mean Square Error \cr
-\item \code{cluster} cluster information for each area \cr
 \item \code{rse} Relative Standart Error (\%) \cr
 }
 
@@ -60,7 +59,7 @@ in last column (pvalue) \cr
 }
 }
 \description{
-This function gives the EBLUP (or EB predictor under normality) based on a Fay-Herriot model.
+This function gives the 'EBLUP' (or EB predictor under normality) based on a 'Fay-Herriot' model.
 }
 \details{
 The model has a form that is response ~ auxiliary variables.

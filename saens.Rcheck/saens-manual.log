@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.25)  26 JAN 2024 21:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.25)  14 FEB 2024 14:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**C:/Users/alfrz/AppData/Local/Temp/RtmpU5pFqt/Rd2pdf4aa05a0c11cc/Rd2.tex
-(C:/Users/alfrz/AppData/Local/Temp/RtmpU5pFqt/Rd2pdf4aa05a0c11cc/Rd2.tex
+**C:/Users/alfrz/AppData/Local/Temp/RtmpI5ZWRM/Rd2pdf246c73ce376d/Rd2.tex
+(C:/Users/alfrz/AppData/Local/Temp/RtmpI5ZWRM/Rd2pdf246c73ce376d/Rd2.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 
@@ -329,6 +329,12 @@ Package hyperref Info: Link coloring ON on input line 8.
 \@outlinefile=\write4
 \openout4 = `Rd2.out'.
 
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
+1.
+
+(C:\Users\alfrz\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 25
 .
 
@@ -357,187 +363,163 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 {C:/Users/alfrz/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/alfr
 z/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/alfrz/App
 Data/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 4
-9.
- (C:\Users\alfrz\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\ts1zi4.fd
-File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 49.
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 70.
- [2{C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4
--ts1.enc}] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 225--227
+(Font)              scaled to size 9.0pt on input line 131.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 [4]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-29.
- (C:\Users\alfrz\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 209--213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--247
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 329--331
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 347--351
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--353
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
-[7] [8] [9] [10] (Rd2.ind [11]
-
-LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 16.
-
-[12
+[5] [6] (Rd2.ind [7] [8
 
 
 ]) (Rd2.aux)
@@ -545,44 +527,28 @@ LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `Rd2.out' has not changed.
-(rerunfilecheck)             Checksum: F75AF3B7EA018654577827B307E9298E;1206.
+(rerunfilecheck)             Checksum: 3C7BF47ACAE2A03ABCFE8B1662BA2FF8;477.
  ) 
 Here is how much of TeX's memory you used:
- 9510 strings out of 475248
- 148100 string characters out of 5757813
- 1934785 words of memory out of 5000000
- 30779 multiletter control sequences out of 15000+600000
- 592921 words of font info for 71 fonts, out of 8000000 for 9000
+ 9430 strings out of 475248
+ 146861 string characters out of 5757813
+ 1931785 words of memory out of 5000000
+ 30754 multiletter control sequences out of 15000+600000
+ 592632 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,5n,95p,317b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Rfn.fortify\(\)} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Rfn.ggplot\(\)} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Rfn.autolayer\(\)} has been referenced but does not
- exist, replaced by a fixed one
-
-<C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/In
-consolata-zi4r.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts
-/type1/urw/helvetic/uhvr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fo
-nts/type1/urw/times/utmb8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fo
-nts/type1/urw/times/utmr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fo
-nts/type1/urw/times/utmr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fo
-nts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (12 pages, 141539 bytes).
+ 92i,5n,95p,317b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/
+Inconsolata-zi4r.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/fon
+ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/
+fonts/type1/urw/times/utmb8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/
+fonts/type1/urw/times/utmr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/
+fonts/type1/urw/times/utmr8a.pfb><C:/Users/alfrz/AppData/Local/Programs/MiKTeX/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (8 pages, 120133 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

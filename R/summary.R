@@ -1,7 +1,7 @@
-#' Summarizing EBLUP Model Fits
+#' Summarizing EBLUP Model Fits.
 #'
-#' @description `summary` method for class "eblupres"
-#' @param object EBLUP model
+#' @description `summary` method for class "eblupres".
+#' @param object EBLUP model.
 #' @param ... further arguments passed to or from other methods.
 #'
 #' @return The function returns a data frame that contains the following columns: \cr

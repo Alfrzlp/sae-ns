@@ -1,11 +1,11 @@
-#' Akaike's An Information Criterion
+#' Akaike's An Information Criterion.
 #'
 #' @description Generic function calculating Akaike's "An Information Criterion" for EBLUP model
 #'
-#' @param object EBLUP model
+#' @param object EBLUP model.
 #' @param ... further arguments passed to or from other methods.
 #'
-#' @return AIC value
+#' @return AIC value.
 #'
 #' @examples
 #' m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")

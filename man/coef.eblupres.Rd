@@ -2,12 +2,12 @@
 % Please edit documentation in R/coef.R
 \name{coef.eblupres}
 \alias{coef.eblupres}
-\title{Extract Model Coefficients}
+\title{Extract Model Coefficients.}
 \usage{
 \method{coef}{eblupres}(object, ...)
 }
 \arguments{
-\item{object}{EBLUP model}
+\item{object}{EBLUP model.}
 
 \item{...}{further arguments passed to or from other methods.}
 }
@@ -15,7 +15,7 @@
 model coefficients
 }
 \description{
-Extract Model Coefficients
+Extract Model Coefficients.
 }
 \examples{
 m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")

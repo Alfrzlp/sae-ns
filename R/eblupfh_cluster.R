@@ -1,6 +1,6 @@
 #' EBLUPs based on a Fay-Herriot Model with Cluster Information.
 #'
-#' @description This function gives the EBLUP (or EB predictor under normality) based on a Fay-Herriot model with cluster information for non-sampled areas.
+#' @description This function gives the Empirical Best Linear Unbiased Prediction (EBLUP) or Empirical Best (EB) predictor based on a Fay-Herriot model with cluster information for non-sampled areas.
 #'
 #' @references
 #' \enumerate{
@@ -9,14 +9,14 @@
 #' }
 #'
 #' @param formula an object of class formula that contains a description of the model to be fitted. The variables included in the formula must be contained in the data.
-#' @param data a data frame or a data frame extension (e.g. a tibble)
-#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area
+#' @param data a data frame or a data frame extension (e.g. a tibble).
+#' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area.
 #' @param cluster vector or column name from data that contain cluster information.
 #' @param method Fitting method can be chosen between 'ML' and 'REML'
 #' @param maxiter maximum number of iterations allowed in the Fisher-scoring algorithm. Default is 100 iterations.
 #' @param precision convergence tolerance limit for the Fisher-scoring algorithm. Default value is 0.0001.
-#' @param scale scaling auxiliary variable or not, default value is FALSE
-#' @param print_result print coefficient or not, default value is TRUE
+#' @param scale scaling auxiliary variable or not, default value is FALSE.
+#' @param print_result print coefficient or not, default value is TRUE.
 #'
 #' @returns The function returns a list with the following objects \code{df_res} and \code{fit}:
 #' \code{df_res} a data frame that contains the following columns: \cr
@@ -71,10 +71,10 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
 
 
   if (any(is.na(y)) & missing(cluster)) {
-    cli::cli_abort("variable y contains NA values, cluster information must be filled")
+    cli::cli_abort("variable {all.names(formula[2])} contains NA values, cluster information must be filled")
   }
   if (!any(is.na(y)) & !missing(cluster)) {
-    cli::cli_warn("variable y does not contain na and cluster variable is filled")
+    cli::cli_warn("variable {all.names(formula[2])} does not contain na and cluster variable is filled")
   }
 
   if (!any(is.na(y))) {
@@ -84,7 +84,7 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
     # Extract vardir and cluster
     clust <- .get_variable(data, cluster)
     if (any(is.na(clust))) {
-      cli::cli_abort("cluster variable contains NA values.")
+      cli::cli_abort("{cluster} variable contains NA values.")
     }
     # data sampled
     datas <- data[!nonsample, ]
@@ -93,7 +93,7 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
     df_res$cluster <- clust
   }
 
-
+  vardir_name <- vardir
   vardir <- .get_variable(datas, vardir)
   formuladata <- stats::model.frame(formula, datas, na.action = NULL)
   X <- stats::model.matrix(formula, datas)
@@ -107,11 +107,11 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
 
   # Cek pilihan metode
   if (!toupper(method) %in% c("ML", "REML")) {
-    cli::cli_abort('"method" must be ML or REML, not {method}')
+    cli::cli_abort('"method" must be ML or REML, not {method}.')
   }
   # cek vardir mengandung NA atau tidak
   if (any(is.na(vardir))) {
-    cli::cli_abort("Argument vardir contains NA values.")
+    cli::cli_abort("Argument {vardir_name} contains NA values.")
   }
   # cek Auxiliary variabels mengandung NA atau tidak
   if (any(is.na(X))) {
@@ -150,8 +150,6 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
       G <- diag(sigma2_u[k + 1], m)
       # varians y
       V <- Z %*% G %*% t(Z) + R
-      print(Z %*% G %*% t(Z))
-      print(V)
 
       Vi <- solve(V)
       XtVi <- Xt %*% Vi

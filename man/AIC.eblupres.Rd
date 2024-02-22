@@ -3,19 +3,19 @@
 \name{AIC.eblupres}
 \alias{AIC.eblupres}
 \alias{BIC.eblupres}
-\title{Akaike's An Information Criterion}
+\title{Akaike's An Information Criterion.}
 \usage{
 \method{AIC}{eblupres}(object, ...)
 
 \method{BIC}{eblupres}(object, ...)
 }
 \arguments{
-\item{object}{EBLUP model}
+\item{object}{EBLUP model.}
 
 \item{...}{further arguments passed to or from other methods.}
 }
 \value{
-AIC value
+AIC value.
 }
 \description{
 Generic function calculating Akaike's "An Information Criterion" for EBLUP model
