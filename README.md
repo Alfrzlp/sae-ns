@@ -6,6 +6,8 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/saens)](https://CRAN.R-project.org/package=saens)
 [![R-CMD-check](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml)
+![downloads](https://cranlogs.r-pkg.org/badges/grand-total/saens)
+
 <!-- badges: end -->
 
 ## Author
@@ -47,6 +49,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(saens)
+library(sae)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -59,10 +62,31 @@ windowsFonts(
 ## Data
 
 ``` r
+# Load data set from sae package
+data(milk)  
 milk$var <- milk$SD^2
 
-# glimpse(mys)
-# glimpse(milk)
+glimpse(mys)
+#> Rows: 42
+#> Columns: 8
+#> $ area  <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…
+#> $ y     <dbl> 8.359527, 7.599650, 5.514137, 3.869326, 6.305063, 3.926807, 5.68…
+#> $ var   <dbl> 0.6618838, 0.8374691, 0.8822257, 0.6581716, 1.2788021, 0.3878004…
+#> $ rse   <dbl> 9.732158, 12.041783, 17.033831, 20.966899, 17.935449, 15.858590,…
+#> $ x1    <dbl> 124, 89, 57, 88, 141, 96, 146, 110, 58, 63, 35, 56, 84, 240, 123…
+#> $ x2    <dbl> 24, 18, 19, 35, 46, 29, 57, 41, 18, 13, 12, 14, 38, 71, 33, 53, …
+#> $ x3    <dbl> 14, 9, 5, 19, 29, 10, 34, 23, 11, 5, 9, 11, 35, 48, 29, 44, 37, …
+#> $ clust <dbl> 3, 3, 4, 4, 3, 4, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4, 3, 3, 3…
+glimpse(milk)
+#> Rows: 43
+#> Columns: 7
+#> $ SmallArea <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
+#> $ ni        <int> 191, 633, 597, 221, 195, 191, 183, 188, 204, 188, 149, 290, …
+#> $ yi        <dbl> 1.099, 1.075, 1.105, 0.628, 0.753, 0.981, 1.257, 1.095, 1.40…
+#> $ SD        <dbl> 0.163, 0.080, 0.083, 0.109, 0.119, 0.141, 0.202, 0.127, 0.16…
+#> $ CV        <dbl> 0.148, 0.074, 0.075, 0.174, 0.158, 0.144, 0.161, 0.116, 0.12…
+#> $ MajorArea <int> 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, …
+#> $ var       <dbl> 0.026569, 0.006400, 0.006889, 0.011881, 0.014161, 0.019881, …
 ```
 
 # EBLUP Model
@@ -219,7 +243,7 @@ mys %>%
 
 <img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
 
-## References
+# References
 
 - Rao, J. N., & Molina, I. (2015). Small area estimation. John Wiley &
   Sons.

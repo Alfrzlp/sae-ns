@@ -14,8 +14,9 @@ knitr::opts_chunk$set(
 # saens
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/saens)](https://CRAN.R-project.org/package=saens)
-[![R-CMD-check](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/saens)](https://CRAN.R-project.org/package=saens) [![R-CMD-check](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Alfrzlp/sae-ns/actions/workflows/R-CMD-check.yaml) ![downloads](https://cranlogs.r-pkg.org/badges/grand-total/saens)
+
 <!-- badges: end -->
 
 ## Author
@@ -28,7 +29,7 @@ Ridson Al Farizal P [ridsonap\@bps.go.id](mailto:ridsonap@bps.go.id)
 
 ## Description
 
-Implementation of small area estimation (Fay-Herriot model) with EBLUP (Empirical Best Linear Unbiased Prediction) Approach for non-sampled area estimation by adding cluster information and assuming that there are similarities among particular areas. See also Rao & Molina (2015, ISBN:978-1-118-73578-7) and Anisa et al. (2013) <doi:10.9790/5728-10121519>.
+Implementation of small area estimation (Fay-Herriot model) with EBLUP (Empirical Best Linear Unbiased Prediction) Approach for non-sampled area estimation by adding cluster information and assuming that there are similarities among particular areas. See also Rao & Molina (2015, <ISBN:978-1-118-73578-7>) and Anisa et al. (2013) <doi:10.9790/5728-10121519>.
 
 ## Installation
 
@@ -51,6 +52,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example, message=FALSE, warning=FALSE}
 library(saens)
+library(sae)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -63,10 +65,12 @@ windowsFonts(
 ## Data
 
 ```{r data}
+# Load data set from sae package
+data(milk)  
 milk$var <- milk$SD^2
 
-# glimpse(mys)
-# glimpse(milk)
+glimpse(mys)
+glimpse(milk)
 ```
 
 # EBLUP Model
@@ -162,7 +166,7 @@ mys %>%
   )
 ```
 
-## References
+# References
 
 -   Rao, J. N., & Molina, I. (2015). Small area estimation. John Wiley & Sons.
 -   Anisa, R., Kurnia, A., & Indahwati, I. (2013). Cluster information of non-sampled area in small area estimation. E-Prosiding Internasional\| Departemen Statistika FMIPA Universitas Padjadjaran, 1(1), 69-76.
