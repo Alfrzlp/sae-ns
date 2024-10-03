@@ -16,6 +16,8 @@ A data frame with 42 rows and 7 variables with 10 domains are non-sampled areas.
   \item{x2}{Number of Junior High Schools}
   \item{x3}{Number of Senior High Schools}
   \item{clust}{Cluster}
+  \item{n}{Number of eligible samples}
+  \item{weight}{Weight}
 }
 }
 \source{

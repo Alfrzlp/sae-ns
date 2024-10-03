@@ -65,7 +65,7 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
     eblup = NA,
     random_effect = NA,
     vardir = NA,
-    g1 = NA, g2 = NA, g3 = NA,
+    # g1 = NA, g2 = NA, g3 = NA,
     mse = NA
   )
 
@@ -279,9 +279,9 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
 
   df_res[!nonsample, "random_effect"] <- u
   df_res[!nonsample, "eblup"] <- eblup_est
-  df_res[!nonsample, "g1"] <- g1d
-  df_res[!nonsample, "g2"] <- g2d
-  df_res[!nonsample, "g3"] <- g3d
+  # df_res[!nonsample, "g1"] <- g1d
+  # df_res[!nonsample, "g2"] <- g2d
+  # df_res[!nonsample, "g3"] <- g3d
   df_res[!nonsample, "vardir"] <- vardir
   df_res[!nonsample, "mse"] <- mse2d
 
@@ -324,9 +324,9 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
 
     df_res[nonsample, "random_effect"] <- u_ns
     df_res[nonsample, "eblup"] <- Xbeta_ns + u_ns
-    df_res[nonsample, "g1"] <- g1_ns
-    df_res[nonsample, "g2"] <- g2_ns
-    df_res[nonsample, "g3"] <- g3_ns
+    # df_res[nonsample, "g1"] <- g1_ns
+    # df_res[nonsample, "g2"] <- g2_ns
+    # df_res[nonsample, "g3"] <- g3_ns
     df_res[nonsample, "vardir"] <- vardir_ns
   }
 
@@ -346,38 +346,4 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML",
   }
 
   return(invisible(result))
-}
-
-
-
-
-
-# Fungsi Penolong ---------------------------------------------------------
-
-# extract variable from data frame
-.get_variable <- function(data, variable) {
-  if (length(variable) == nrow(data)) {
-    return(variable)
-  } else if (methods::is(variable, "character")) {
-    if (variable %in% colnames(data)) {
-      variable <- data[[variable]]
-    }else{
-      cli::cli_abort('variable "{variable}" is not found in the data')
-    }
-  } else if (methods::is(variable, "formula")) {
-    # extract column name (class character) from formula
-    variable <- data[[all.vars(variable)]]
-  } else {
-    cli::cli_abort('variable "{variable}" is not found in the data')
-  }
-  return(variable)
-}
-
-.get_value <- function(x, klas, ns, fun = mean) {
-  agg_klas <- stats::aggregate(x, list(klas[!ns]), FUN = fun, na.rm = TRUE)
-  x_ns <- dplyr::left_join(
-    data.frame(Group.1 = klas[ns]) ,
-    agg_klas, by = 'Group.1'
-  )$x
-  return(x_ns)
 }

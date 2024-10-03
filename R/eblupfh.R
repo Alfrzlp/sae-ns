@@ -62,7 +62,7 @@ eblupfh <- function(formula, data, vardir, method = "REML",
     eblup = NA,
     random_effect = NA,
     vardir = NA,
-    g1 = NA, g2 = NA, g3 = NA,
+    # g1 = NA, g2 = NA, g3 = NA,
     mse = NA
   )
 
@@ -256,10 +256,10 @@ eblupfh <- function(formula, data, vardir, method = "REML",
   # g2 <- dT %*% Q %*% t(dT)
 
   df_res$random_effect <- u
-  df_res$eblup <- eblup_est
-  df_res$g1 <- g1d
-  df_res$g2 <- g2d
-  df_res$g3 <- g3d
+  df_res$eblup <- as.vector(eblup_est)
+  # df_res$g1 <- g1d
+  # df_res$g2 <- g2d
+  # df_res$g3 <- g3d
   df_res$vardir <- vardir
   df_res$mse <- mse2d
   df_res$rse <- sqrt(df_res$mse) * 100 / df_res$eblup

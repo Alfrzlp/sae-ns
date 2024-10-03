@@ -2,4 +2,4 @@
 * Added a `NEWS.md` file to track changes to the package.
 
 # saens 0.1.1
-* Add benchmark method
+* Added several benchmarking methods (Ratio, Difference, Optimal, and You-Rao)
