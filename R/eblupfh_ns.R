@@ -1,19 +1,20 @@
-#' EBLUPs based on a Fay-Herriot Model with Cluster Information.
+#' Synthetic Estimator.
 #'
-#' @description This function gives the Empirical Best Linear Unbiased Prediction (EBLUP) or Empirical Best (EB) predictor based on a Fay-Herriot model with cluster information for non-sampled areas.
+#' @description Synthetic estimator is one of the simple methods to obtain predicted values of mean specific area parameters, which the direct estimates are unknown. Based on estimated of parameter coefficient models using Empirical Best Unbiased Prediction (EBLUP), the synthetic estimator is obtained by calibrating the estimated parameter coefficient to the auxiliary variables.
+#'
+#' @details
+#' The model is defined as response ~ auxiliary variables, where the response variable, of numeric type, may contain NA values.
+#' When the response variable contains NA, it will be estimated using a synthetic estimator.
 #'
 #' @references
 #' \enumerate{
 #'  \item Rao, J. N., & Molina, I. (2015). Small area estimation. John Wiley & Sons.
-#'  \item Anisa, R., Kurnia, A., & Indahwati, I. (2013). Cluster information of non-sampled area in small area estimation. E-Prosiding Internasional| Departemen Statistika FMIPA Universitas Padjadjaran, 1(1), 69-76.
 #' }
 #'
 #' @param formula an object of class formula that contains a description of the model to be fitted. The variables included in the formula must be contained in the data.
 #' @param data a data frame or a data frame extension (e.g. a tibble).
 #' @param vardir vector or column names from data that contain variance sampling from the direct estimator for each area.
-#' @param cluster vector or column name from data that contain cluster information.
 #' @param method Fitting method can be chosen between 'ML' and 'REML'
-#' @param mse_method MSE estimating method can be chosen between 'default' and 'jackknife'
 #' @param maxiter maximum number of iterations allowed in the Fisher-scoring algorithm. Default is 100 iterations.
 #' @param precision convergence tolerance limit for the Fisher-scoring algorithm. Default value is 0.0001.
 #' @param scale scaling auxiliary variable or not, default value is FALSE.
@@ -42,59 +43,40 @@
 #'    * \code{goodness} vector containing several goodness-of-fit measures: loglikehood, AIC, and BIC \cr
 #'
 #'
-#' @details
-#' The model has a form that is response ~ auxiliary variables.
-#' where numeric type response variables can contain NA.
-#' When the response variable contains NA it will be estimated with cluster information.
 #'
 #' @export
 #' @examples
 #' library(saens)
 #'
-#' m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = "var", cluster = "clust")
-#' m1 <- eblupfh_cluster(y ~ x1 + x2 + x3, data = mys, vardir = ~var, cluster = ~clust)
+#' m1 <- eblupfh_ns(y ~ x1 + x2 + x3, data = mys, vardir = "var")
+#' m1 <- eblupfh_ns(y ~ x1 + x2 + x3, data = mys, vardir = ~var)
+#'
 #' @md
-
-eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML", mse_method = 'jackknife',
-                            maxiter = 100, precision = 1e-04, scale = FALSE,
-                            print_result = TRUE) {
+eblupfh_ns <- function(formula, data, vardir, method = "REML",
+                       maxiter = 100, precision = 1e-04, scale = FALSE,
+                       print_result = TRUE) {
   y <- stats::model.frame(formula, data, na.action = NULL)[[1]]
   nonsample <- ifelse(is.na(y), TRUE, FALSE)
   # data hasil
   df_res <- data.frame(
     y = y,
     eblup = NA,
-    cluster = NA,
-    random_effect = NA,
-    vardir = NA,
-    g1 = NA,
-    # g2 = NA, g3 = NA,
+    # random_effect = NA,
+    # vardir = NA,
+    # g1 = NA, g2 = NA, g3 = NA,
     mse = NA
   )
-
-
-  if (any(is.na(y)) & missing(cluster)) {
-    cli::cli_abort("variable {all.names(formula[2])} contains NA values, cluster information must be filled")
-  }
-  if (!any(is.na(y)) & !missing(cluster)) {
-    cli::cli_warn("variable {all.names(formula[2])} does not contain na and cluster variable is filled")
-  }
 
   if (!any(is.na(y))) {
     # eblup tanpa cluster
     datas <- data
   } else {
-    # Extract vardir and cluster
-    clust <- .get_variable(data, cluster)
-    if (any(is.na(clust))) {
-      cli::cli_abort("{cluster} variable contains NA values.")
-    }
     # data sampled
     datas <- data[!nonsample, ]
     # data nonsampled
     datans <- data[nonsample, ]
-    df_res$cluster <- clust
   }
+
 
   vardir_name <- vardir
   vardir <- .get_variable(datas, vardir)
@@ -110,11 +92,7 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML", mse
 
   # Cek pilihan metode
   if (!toupper(method) %in% c("ML", "REML")) {
-    cli::cli_abort('"method" must be either ML or REML, not {method}.')
-  }
-  # Cek pilihan metode
-  if (!tolower(mse_method) %in% c("default", "jackknife")) {
-    cli::cli_abort('MSE estimation method must be either default or jackknife, not {mse_method}.')
+    cli::cli_abort('"method" must be ML or REML, not {method}.')
   }
   # cek vardir mengandung NA atau tidak
   if (any(is.na(vardir))) {
@@ -277,113 +255,39 @@ eblupfh_cluster <- function(formula, data, vardir, cluster, method = "REML", mse
       mse2d[d] <- g1d[d] + g2d[d] + 2 * g3d[d]
     }
   }
-  # MSE with matrix -----------------------------------
-  df_res[!nonsample, "random_effect"] <- u
+
+  # df_res[!nonsample, "random_effect"] <- u
+  # df_res[!nonsample, "vardir"] <- vardir
   df_res[!nonsample, "eblup"] <- eblup_est
-  df_res[!nonsample, "g1"] <- g1d
-  # df_res[!nonsample, "g2"] <- g2d
-  # df_res[!nonsample, "g3"] <- g3d
-  df_res[!nonsample, "vardir"] <- vardir
   df_res[!nonsample, "mse"] <- mse2d
 
 
   # Non sampled -----------------------------------------------
   if (sum(nonsample) >= 1) {
-    m_ns <- sum(nonsample)
-    # Xns <- model.matrix(formula, datans)
     Xns <- stats::model.matrix(formula, stats::model.frame(~., datans, na.action = stats::na.pass))
     if (scale) {
       Xns <- scale(Xns, center = my_center, scale = my_scale)
     }
-    Xbeta_ns <- Xns %*% BETA
 
-    vardir_ns <- .get_value(vardir, clust, nonsample)
-    g1_ns <- g2_ns <- rep(0, m_ns)
-    Bd_ns <- vardir_ns / (sigma2_u + vardir_ns)
-    g1_ns <- vardir_ns * (1 - Bd_ns)
-    u_ns <- .get_value(u, clust, nonsample)
+    # df_res[nonsample, "random_effect"] <- NA
+    # var_beta1 <- solve(t(X) %*% solve(diag(vardir + sigma2_u)) %*% X)
+    # print(all.equal(Q, var_beta1))
+    var_beta1 <- Q
 
-    if(mse_method == 'default'){
-      g3_ns <- .get_value(g3d, clust, nonsample)
-      Vi_ns <- diag(1 / (sigma2_u + vardir_ns))
-      XtVi_ns <- t(Xns) %*% Vi_ns
-      Q_ns <- solve(XtVi_ns %*% Xns)
+    # y_cap1 <- eblup_est
+    # var_y_cap1 <- mse2d
 
-      for (i in 1:m_ns) {
-        xd_ns <- matrix(Xns[i, ], nrow = 1, ncol = p)
-        g2_ns[i] <- (Bd_ns[i]^2) * xd_ns %*% Q_ns %*% t(xd_ns)
-      }
+    #Estimasi Area tidak tersampel dengan Syntetis
+    y_cap2 <- Xns %*% BETA
+    var_y_cap2 <- diag(sigma2_u + Xns %*% var_beta1 %*% t(Xns))
 
-      if (method == "ML") {
-        SumAD2_ns <- sum(diag(Vi_ns)^2)
-        b <- -1 * sum(diag(Q_ns %*% (t((Vi_ns %*% Vi_ns) %*% Xns) %*% Xns))) / SumAD2_ns
-        df_res[nonsample, "mse"] <- g1_ns + g2_ns + 2 * g3_ns - b * (Bd_ns^2)
-      } else if (method == "REML") {
-        df_res[nonsample, "mse"] <- g1_ns + g2_ns + 2 * g3_ns
-      }
-    }
-
-    df_res[nonsample, "random_effect"] <- u_ns
-    df_res[nonsample, "eblup"] <- Xbeta_ns + u_ns
-    df_res[nonsample, "g1"] <- g1_ns
-    df_res[nonsample, "vardir"] <- vardir_ns
-    # df_res[nonsample, "g2"] <- g2_ns
-    # df_res[nonsample, "g3"] <- g3_ns
-    df_res$rse <- sqrt(df_res$mse) * 100 / df_res$eblup
-
-    # MSE Jackknife ------------------------------------------------------------
-    if(mse_method == 'jackknife'){
-      for (i in 1:m) {
-        datas_sub <- datas[-i, ]
-        sae1_sub <- eblupfh(formula, vardir = vardir_name, data = datas_sub, print_result = FALSE)
-        sigma2_u_sub <- sae1_sub$fit$random_effect_var
-        beta1_sub <- matrix(sae1_sub$fit$estcoef$beta)
-        gamma1_sub <- sigma2_u_sub / (sigma2_u_sub + vardir)
-
-        y <- stats::model.frame(formula, datas, na.action = NULL)[[1]]
-        X <- stats::model.matrix(formula, datas)
-
-        g1_sub <- gamma1_sub * vardir
-
-        resid <- y - X %*% beta1_sub
-        u1_sub <- (sigma2_u_sub / (sigma2_u_sub + vardir)) * resid
-        u1_sub <- as.vector(u1_sub)
-
-        y_cap1_sub <- X %*% beta1_sub + u1_sub
-
-        u1_ns <- .get_value(u1_sub, clust, nonsample)
-        g1_ns <- .get_value(g1_sub, clust, nonsample)
-
-        df_hasil <- data.frame(nonsample, y_cap = NA, g1 = NA)
-        df_hasil[!nonsample, 'y_cap'] <- y_cap1_sub
-        y_cap <-  Xns %*% beta1_sub + u1_ns
-
-        df_hasil[nonsample, 'y_cap'] <- y_cap
-        df_hasil[!nonsample, 'g1'] <- g1_sub
-        df_hasil[nonsample, 'g1'] <- g1_ns
-
-        y_cap_sub <- df_hasil$y_cap
-        g1_sub <- df_hasil$g1
-
-        M2_sub <- (y_cap_sub - df_res$eblup)^2
-        M2_sub <- M2_sub + M2_sub
-        M1_sub <- g1_sub - df_res$g1
-        M1_sub <- M1_sub + M1_sub
-
-      }
-      M2.cap <- M2_sub * (m - 1) / m
-      M1 <- M1_sub * (m - 1) / m
-      M1.cap <- df_res$g1 - M1
-      MSE.cap <- M1.cap + M2.cap
-
-      df_res$mse <- MSE.cap
-      df_res$rse <- sqrt(MSE.cap) * 100 / df_res$eblup
-    }
-    # ------------------------------------------------------------
+    df_res[nonsample, "mse"] <- var_y_cap2
+    df_res[nonsample, "eblup"] <- y_cap2
   }
 
-  df_res$g1 <- NULL
-  result$df_res <- df_res
+  df_res$rse <- sqrt(df_res$mse) * 100 / df_res$eblup
+
+  result$df_res <- df_res[, -1]
   result$fit$estcoef <- coef_est
   result$fit$goodness <- c(loglike = loglike, AIC = AIC, BIC = BIC)
   result$fit$n_iter <- k
